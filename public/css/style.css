@@ -1,0 +1,999 @@
+/* Importing font family */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+/* Setting up the gradient background */
+.landing {
+  background-image: linear-gradient(#fff, #fff, #fff, #9958e6);
+  min-height: 100vh;
+}
+
+/* Styling the Logo on the Landing Page */
+.logo {
+  font-size: 30px;
+  color: #2C282E;
+  font-weight: bold;
+  padding: 0 12%;
+  margin-top: 35px;
+}
+.logo:hover {
+  cursor: pointer;
+}
+
+/* Styling the dropdown Button for showing the list of existing rooms */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  right: 12%;
+  top: 35px;
+}
+.dropbutton {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid #9958e6;
+  background-color: #9958e6;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+.dropdown-content li {
+  color: black;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+  background-color: #ffffff;
+}
+.dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbutton {
+  background-color: #ffffff;
+  color: #9958e6;
+}
+
+/* Styling the components of the Landing Page starts here */
+.main {
+  display: flex;
+  padding: 0 12%;
+  margin-top: 15vh;
+  width: 100%;
+}
+.main .create-join {
+  width: 85%;
+  margin-right: 50px;
+}
+.main .create-join .head {
+  margin-top: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #2C282E;
+}
+.main .create-join .createroom-butt {
+  background-color: #9958e6;
+  color: white;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 2px solid #9958e6;
+  transition: 0.2s;
+}
+.main .create-join .createroom-butt:hover {
+  background: none;
+  border: 2px solid #9958e6;
+  color: #9958e6;
+  cursor: pointer;
+}
+.main .create-join .subtext {
+  font-size: 24px;
+  color: #232931;
+  margin-top: 10px;
+}
+.main .create-join .roomcode {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #393e46;
+  text-align: center;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 3px solid #232931;
+  font-weight: bold;
+  outline: none;
+  background: none;
+}
+.main .create-join .joinroom {
+  margin-top: 5px;
+  text-align: right;
+  color: #9958e6;
+}
+.main .create-join .joinroom:hover {
+  cursor: pointer;
+  color: #4a464e;
+}
+
+/* Styling the video content and toggle buttons */
+.main .video-cont {
+  width: 100%;
+  text-align: center;
+}
+.main .video-cont .video-self {
+  height: 400px;
+  width: 100%;
+  background-color: #4a464e;
+  border-radius: 15px;
+  object-fit: cover;
+}
+.main .video-cont .settings {
+  margin: 0 auto;
+  display: flex;
+  margin-top: 10px;
+  width: 100px;
+}
+.main .video-cont .settings .device {
+  background-color: #9958e6;
+  border-radius: 100px;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  color: white;
+}
+.main .video-cont .settings .nodevice {
+  background-color: #b12c2c;
+  border-radius: 100px;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  color: white;
+}
+.main .video-cont .settings .device:hover , .main .video-cont .settings .nodevice:hover {
+  background-color: #4a464e;
+  cursor: pointer;
+}
+/* Styling the components of the Landing Page starts here */
+
+
+/* Styling of room overlay page starts here */
+.overlay {
+  position: fixed;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(#ffffff, #9958e6);
+}
+.overlay .box {
+  width: 40%;
+  margin: 0 auto;
+  height: 210px;
+  background-color: #ffffff;
+  margin-top: 150px;
+  border-radius: 20px;
+  text-align: center;
+}
+.overlay .box .head-name {
+  font-size: 1.5rem;
+  padding-top: 20px;
+  text-align: center;
+}
+.overlay .box .name-field {
+  margin-top: 20px;
+  border: 0;
+  font-weight: bold;
+  padding: 10px;
+  width: 80%;
+  border-bottom: 3px solid #232931;
+  outline: none;
+}
+.overlay .box .continue-name {
+  width: 80%;
+  margin-top: 30px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #9958e6;
+  padding: 10px 20px;
+  border: 2px solid #9958e6;
+  border-radius: 12px;
+}
+.overlay .box .continue-name:hover {
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #9958e6;
+  color: #9958e6;
+}
+/* Styling of room overlay page ends here */
+
+/* Styling of the tooltip text for various buttons starts here */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0f0f0f transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.8;
+}
+/* Styling of the tooltip text for various buttons ends here */
+
+/* Styling of the main video conferencing and chat room starts here */
+.container-room {
+  display: flex;
+}
+
+/* Setting up Scroll Bar functionality */
+.container-room ::-webkit-scrollbar {
+  width: 10px;
+}
+.container-room ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.container-room ::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+}
+.container-room ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container-room .left-cont {
+  width: 80%;
+  background-color: #2d2b2e;
+  padding: 70px 40px 10px 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* Styling of video container when only 1 peer is present starts here */
+.container-room .left-cont .video-cont-single {
+  height: 76vh;
+}
+.container-room .left-cont .video-cont-single .video-box {
+  background-color: #383e4b;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+.container-room .left-cont .video-cont-single .video-box .video-frame {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* This is how peer's name appears along with the video */
+.container-room .left-cont .video-cont-single .video-box .nametag {
+  color: white;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+/* This is the styling of the text visible on video container when video is turned off */
+.container-room .left-cont .video-cont-single .video-box .video-off {
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+}
+
+/* Styling of the mic icon which is visible on video container when peer is muted */
+.container-room .left-cont .video-cont-single .video-box .mute-icon {
+  color: #d63434;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 20px;
+}
+
+/* Styling of hand icon visible on video container when hand is raised */
+.container-room .left-cont .video-cont-single .video-box .hand-icon {
+  color: #d3b924;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* Styling of video container when only 1 peer is present ends here */
+
+/* Styling of video container when more than 1 peer are present starts here */
+.container-room .left-cont .video-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 20px;
+  height: 76vh;
+}
+.container-room .left-cont .video-cont .video-box {
+  background-color: #383e4b;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+.container-room .left-cont .video-cont .video-box .video-frame {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* This is how peer's name appears along with the video */
+.container-room .left-cont .video-cont .video-box .nametag {
+  color: white;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+/* This is the styling of the text visible on video container when video is turned off */
+.container-room .left-cont .video-cont .video-box .video-off {
+  color: white;
+  position: absolute;
+  font-weight: bold;
+  top: 40%;
+  left: 0;
+  right: 0;
+}
+
+/* Styling of the mic icon which is visible on video container when peer is muted */
+.container-room .left-cont .video-cont .video-box .mute-icon {
+  color: #d63434;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* Styling of hand icon visible on video container when hand is raised */
+.container-room .left-cont .video-cont .video-box .hand-icon {
+  color: #d3b924;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* Styling of video container when more than 1 peer are present ends here */
+
+
+/* Styling of Whiteboard Feature starts here */
+.container-room .left-cont .whiteboard-cont {
+  height: 75vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 75px;
+  padding: 0px 50px 0px 50px;
+}
+.container-room .left-cont .whiteboard-cont #whiteboard {
+  background-color: white;
+  border-radius: 10px;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont {
+  position: absolute;
+  right: 80px;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling the buttons for selecting different colours */
+.container-room .left-cont .whiteboard-cont .colors-cont .black {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: black;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .black:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .brown {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #834c32;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .brown:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .grey {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: gray;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .grey:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .red {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #e74c3c;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .red:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .orange {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #e67e22;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .orange:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .yellow {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #f1c40f;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .yellow:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .green {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #badc58;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .green:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .blue {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #3498db;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .blue:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .purple {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #9b59b6;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .purple:hover {
+  cursor: pointer;
+}
+
+.container-room .left-cont .whiteboard-cont .colors-cont .pink {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50px;
+  background-color: #fd79a8;
+  margin-top: 1vh;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .pink:hover {
+  cursor: pointer;
+}
+
+/* Styling the buttons for eraser, save board, clear board */
+.container-room .left-cont .whiteboard-cont .colors-cont .eraser {
+  font-size: 3.5vh;
+  margin-top: 2.5vh;
+  color: #2b2b2b;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .eraser:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .clearboard {
+  font-size: 3.5vh;
+  margin-top: 1vh;
+  color: #2b2b2b;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .clearboard:hover {
+  cursor: pointer;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .saveboard {
+  font-size: 3.5vh;
+  margin-top: 1vh;
+  color: #2b2b2b;
+}
+.container-room .left-cont .whiteboard-cont .colors-cont .saveboard:hover {
+  cursor: pointer;
+}
+
+/* Styling of whiteboard feature ends here */
+
+/* Styling of top reaction utilities starts here */
+.container-room .left-cont .utilstop{
+  font-size: 21px;
+  display: flex;
+  position: absolute;
+  top: 35px;
+}
+.container-room .left-cont .utilstop .clap {
+  color: #c4c4c4;
+} 
+.container-room .left-cont .utilstop .thumbsup, 
+.container-room .left-cont .utilstop .heart {
+  color: #c4c4c4;
+  padding-left: 10px;
+}
+.container-room .left-cont .utilstop .clap:hover,
+.container-room .left-cont .utilstop .thumbsup:hover, 
+.container-room .left-cont .utilstop .heart:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.container-room .left-cont .utilstop .reactbypeer {
+  color: #c4c4c4;
+  padding-left: 20px;
+} 
+
+/* Styling of the footer starts here */
+.container-room .left-cont .footer {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* Styling of the mic/video toggle buttons and leave call button starts here */
+.container-room .left-cont .footer .utils {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.container-room .left-cont .footer .utils .audio {
+  background-color: #c4c4c4;
+  color: #393e46;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  transition: background-color 0.1s;
+}
+.container-room .left-cont .footer .utils .novideo {
+  background-color: #c4c4c4;
+  margin-left: 10px;
+  color: #393e46;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  transition: background-color 0.1s;
+}
+.container-room .left-cont .footer .utils .novideo:hover, .container-room .left-cont .footer .utils .audio:hover {
+  color: white;
+  cursor: pointer;
+  background-color: #393e46;
+}
+.container-room .left-cont .footer .utils .cutcall {
+  background-color: #cc4e4e;
+  margin-left: 10px;
+  color: white;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  transition: background-color 0.1s;
+}
+.container-room .left-cont .footer .utils .cutcall:hover {
+  cursor: pointer;
+  background-color: #393e46;
+}
+
+/* Styling of main features of the video conferencing app starts here */
+.container-room .left-cont .footer .utilsleft {
+  position: absolute;
+  top: 0px;
+  display: flex;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border-bottom: 6px solid #9958e6;
+}
+.container-room .left-cont .footer .utilsleft .screenshare {
+  color: #9958e6;
+  transition: background-color 0.3s;
+  transition: color 0.3s;
+}
+.container-room .left-cont .footer .utilsleft .screenshare:hover {
+  cursor: pointer;
+  color: #393e46;
+}
+.container-room .left-cont .footer .utilsleft .board-icon , 
+.container-room .left-cont .footer .utilsleft .raise-hand, 
+.container-room .left-cont .footer .utilsleft .record, 
+.container-room .left-cont .footer .utilsleft .record-screen,
+.container-room .left-cont .footer .utilsleft .attendies-data,
+.container-room .left-cont .footer .utilsleft .mute-everyone,
+.container-room .left-cont .footer .utilsleft .hide-everyone {
+  color: #9958e6;
+  transition: background-color 0.3s;
+  transition: color 0.3s;
+  margin-left: 15px;
+  
+}
+.container-room .left-cont .footer .utilsleft .board-icon:hover, 
+.container-room .left-cont .footer .utilsleft .raise-hand:hover, 
+.container-room .left-cont .footer .utilsleft .record:hover, 
+.container-room .left-cont .footer .utilsleft .record-screen:hover,
+.container-room .left-cont .footer .utilsleft .attendies-data:hover,
+.container-room .left-cont .footer .utilsleft .mute-everyone:hover,
+.container-room .left-cont .footer .utilsleft .hide-everyone:hover {
+  cursor: pointer;
+  color: #393e46;
+}
+
+/* Styling of the copy-code feature starts here */
+.container-room .left-cont .footer .copycode-cont {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  display: flex;
+}
+.container-room .left-cont .footer .copycode-cont .roomcode {
+  color: #9958e6;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 6px solid #9958e6;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.container-room .left-cont .footer .copycode-cont .copycode-button {
+  width: 100px;
+  color: white;
+  background-color: #9958e6;
+  border: none;
+  font-weight: bold;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.container-room .left-cont .footer .copycode-cont .copycode-button:hover {
+  cursor: pointer;
+  color: #393e46;
+}
+
+
+/* Styling of the right container ( chat feature ) starts here */
+.container-room .right-cont {
+  width: 20%;
+}
+
+/* Setting up Scroll Bar */
+.container-room .right-cont ::-webkit-scrollbar {
+  width: 10px;
+}
+.container-room .right-cont ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.container-room .right-cont ::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+}
+.container-room .right-cont ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Styling the chat window starts here */
+.container-room .right-cont .head-title {
+  border-bottom: 2px solid #9958e6;
+}
+.container-room .right-cont .head-title .chats {
+  font-weight: bold;
+  color: #9958e6;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.container-room .right-cont .head-title .chats .msg-save{
+  margin-left: 15px;
+}
+.container-room .right-cont .head-title .chats .msg-save:hover{
+  cursor: pointer;
+  color: #393e46;
+}
+.container-room .right-cont .chat-cont {
+  height: 83vh;
+  padding: 10px 10px 50px 10px;
+  overflow-y: scroll;
+}
+.container-room .right-cont .chat-cont .message {
+  margin-bottom: 13px;
+  margin-left: 10px;
+}
+.container-room .right-cont .chat-cont .message .info {
+  display: flex;
+  font-size: 0.85rem;
+}
+.container-room .right-cont .chat-cont .message .info .username {
+  font-weight: bold;
+  color: #9958e6;
+}
+.container-room .right-cont .chat-cont .message .info .time {
+  margin-left: 15px;
+  font-style: italic;
+}
+.container-room .right-cont .chat-cont .message .content {
+  margin-top: 5px;
+  font-size: 0.95rem;
+}
+.container-room .right-cont .chat-input-cont {
+  padding: 10px;
+  display: flex;
+  height: 50px;
+  box-shadow: 0px -4px 6px rgba(116, 116, 116, 0.15);
+}
+.container-room .right-cont .chat-input-cont .ci-cont {
+  width: 90%;
+}
+.container-room .right-cont .chat-input-cont .ci-send {
+  width: 10%;
+}
+.container-room .right-cont .chat-input-cont .chat-input {
+  width: 100%;
+  height: 40px;
+  font-size: 0.8rem;
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 3px solid #9958e6;
+  color: #3b4047;
+  outline: none;
+}
+.container-room .right-cont .chat-input-cont .chat-send {
+  padding: 10px 5px;
+  text-align: center;
+  color: #9958e6;
+}
+.container-room .right-cont .chat-input-cont .chat-send:hover {
+  cursor: pointer;
+  color: #393e46;
+}
+/* Styling the chat window ends here */
+
+
+/* Media Queries for different screen sizes starts here */
+
+@media (max-width: 1000px) {
+  .main {
+    flex-direction: column;
+  }
+  .main .create-join {
+    width: 100%;
+    margin-right: 0;
+  }
+  .main .video-cont {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .container-room {
+    flex-direction: column;
+  }
+  .container-room .left-cont {
+    width: 100%;
+    padding: 35px 20px 10px 20px;
+  }
+  .container-room .left-cont .video-cont {
+    height: 30vh;
+  }
+  .container-room .left-cont .video-cont-single {
+    height: 30vh;
+  }
+  .container-room .left-cont .utilstop{
+    position: absolute;
+    bottom:5px;
+    top: 10px;
+    left: 20px;
+    font-size: 13px;
+  }
+  .container-room .left-cont .whiteboard-cont {
+    height: 30vh;
+    top: 37px;
+    padding: 0px 20px 0px 20px;
+  }
+  .container-room .left-cont .whiteboard-cont .colors-cont {
+    right: 40px;
+    top: 10px;
+  }
+  .container-room .left-cont .whiteboard-cont .colors-cont .black,
+  .container-room .left-cont .whiteboard-cont .colors-cont .red,
+  .container-room .left-cont .whiteboard-cont .colors-cont .yellow,
+  .container-room .left-cont .whiteboard-cont .colors-cont .green,
+  .container-room .left-cont .whiteboard-cont .colors-cont .orange,
+  .container-room .left-cont .whiteboard-cont .colors-cont .purple,
+  .container-room .left-cont .whiteboard-cont .colors-cont .blue,
+  .container-room .left-cont .whiteboard-cont .colors-cont .pink,
+  .container-room .left-cont .whiteboard-cont .colors-cont .brown,
+  .container-room .left-cont .whiteboard-cont .colors-cont .grey,
+  .container-room .left-cont .whiteboard-cont .colors-cont .eraser,
+  .container-room .left-cont .whiteboard-cont .colors-cont .clearboard,
+  .container-room .left-cont .whiteboard-cont .colors-cont .saveboard {
+    height: 1.6vh;
+    width: 1.6vh;
+    font-size: 1.6vh;
+    margin-top: 2px;
+  }
+  .container-room .left-cont .footer {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  .container-room .left-cont .footer .utilsleft {
+    margin: 3px auto;
+    padding: 4px;
+    border-bottom: 3px solid #9958e6;
+  }
+  .container-room .left-cont .footer .utilsleft .board-icon , 
+  .container-room .left-cont .footer .utilsleft .raise-hand, 
+  .container-room .left-cont .footer .utilsleft .record, 
+  .container-room .left-cont .footer .utilsleft .record-screen,
+  .container-room .left-cont .footer .utilsleft .attendies-data,
+  .container-room .left-cont .footer .utilsleft .mute-everyone,
+  .container-room .left-cont .footer .utilsleft .hide-everyone {
+  margin-left: 8px;
+  }
+  .container-room .left-cont .footer .utils .novideo, 
+  .container-room .left-cont .footer .utils .audio,
+  .container-room .left-cont .footer .utils .cutcall {
+    height: 25px;
+    width: 25px;
+    padding: 7px;
+  }
+  .container-room .left-cont .footer .copycode-cont {
+    margin: 3px auto;
+  }
+  .container-room .left-cont .footer .copycode-cont .copycode-button {
+    font-size: 10px;
+    padding: 4px;
+    width: 70px;
+  }
+  .container-room .left-cont .footer .copycode-cont .roomcode {
+    color: #9958e6;
+    padding: 4px 8px;
+    border-bottom: 3px solid #9958e6;
+  }
+  .container-room .right-cont {
+    width: 100%;
+  }
+  .container-room .right-cont .head-title .chats {
+    font-size: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .container-room .right-cont .chat-cont {
+    height: 40vh;
+  }
+  .container-room .right-cont .chat-cont .message .info {
+    display: flex;
+    font-size: 0.5rem;
+  }
+  .container-room .right-cont .chat-cont .message .info .time {
+    margin-left: 10px;
+    font-style: italic;
+  }
+  .container-room .right-cont .chat-cont .message .content {
+    margin-top: 5px;
+    font-size: 0.6rem;
+  }
+  .container-room .right-cont .chat-input-cont {
+    margin-bottom: 10px;
+    height: 25px;
+  }
+  .container-room .right-cont .chat-input-cont .chat-input {
+    height: 25px;
+    font-size: 0.6rem;
+  }
+  .container-room .right-cont .chat-input-cont .chat-send {
+    padding: 5px 5px;
+  }
+}
+
+@media (max-width: 435px){
+  .logo {
+    font-size: 20px;
+  }
+  .dropbutton {
+    font-size: 10px;
+    padding: 6px;
+    border-radius: 8px;
+  }
+  .overlay .box {
+    width: 60%;
+  }
+  .container-room .left-cont .footer {
+    font-size: 8px;
+    margin-bottom: 8px;
+  }
+  .container-room .left-cont .footer .utilsleft {
+    margin: 2px auto;
+    padding: 3px;
+    border-bottom: 3px solid #9958e6;
+  }
+  .container-room .left-cont .footer .utilsleft .board-icon , 
+  .container-room .left-cont .footer .utilsleft .raise-hand, 
+  .container-room .left-cont .footer .utilsleft .record, 
+  .container-room .left-cont .footer .utilsleft .record-screen,
+  .container-room .left-cont .footer .utilsleft .attendies-data,
+  .container-room .left-cont .footer .utilsleft .mute-everyone,
+  .container-room .left-cont .footer .utilsleft .hide-everyone {
+  margin-left: 3px;
+  }
+  .container-room .left-cont .footer .utils .novideo, 
+  .container-room .left-cont .footer .utils .audio,
+  .container-room .left-cont .footer .utils .cutcall {
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+  }
+  .container-room .left-cont .footer .copycode-cont .copycode-button {
+    font-size: 7px;
+    padding: 3px;
+    width: 50px;
+  }
+  .container-room .left-cont .footer .copycode-cont .roomcode {
+    color: #9958e6;
+    padding: 3px 4px;
+    border-bottom: 3px solid #9958e6;
+  }
+}
+
+/* Media Queries for different screen sizes ends here */

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Meet-Up</title>
+    <link href="favicon.ico" />
+
+    <!-- Linking CSS Stylesheet File -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Linking font-awesome for using the amazing icons -->
+    <script src="https://kit.fontawesome.com/6510466b6c.js" crossorigin="anonymous"></script>
+
+    <script>
+        const params = new URLSearchParams(location.search);
+        if (!params.get("room")) location.href = "/";
+    </script>
+</head>
+
+<body>
+    <!-- Overlay for the video conferencing app -->
+    <div class="overlay" id="overlay">
+        <div class="box">
+            <h1 class="head-name">Your Name</h1>
+            <input type="text" class="name-field" placeholder="Type here..." id="name-field"></input>
+            <button class="continue-name">Enter Room</button>
+        </div>
+    </div>
+
+    <!-- Main window -->
+    <div class="container-room">
+
+        <div class="left-cont">
+
+            <!-- Utilities on top are the reactions we can send to peers during call -->
+            <div class="utilstop">
+                <div class="clap tooltip">
+                    <i class="fas fa-sign-language"></i>
+                    <span class="tooltiptext">Clap Hands</span>
+                </div>
+                <div class="thumbsup tooltip">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span class="tooltiptext">Thumbs Up</span>
+                </div>
+                <div class="heart tooltip">
+                    <i class="fas fa-heart"></i>
+                    <span class="tooltiptext">React Heart</span>
+                </div>
+                <div>
+                    <h4 class="reactbypeer"></h4>
+                </div>
+            </div>
+
+            <div class="video-cont-single" id="vcont">
+                <div class="video-box">
+                    <video class="video-frame" id="vd1" autoplay playsinline></video>
+                    <div class="nametag" id="myname">yourname</div>
+                    <!-- hand icon when hand is raised -->
+                    <div class="hand-icon" id="myhandup"><i class="fas fa-hand-paper"></i></div>
+                    <!-- mute icon when peer is muted -->
+                    <div class="mute-icon" id="mymuteicon"><i class="fas fa-microphone-slash"></i></div>
+                    <!-- video off text when video is turned off -->
+                    <div class="video-off" id="myvideooff">Video Off</div>
+                </div>
+            </div>
+
+            <!-- Feature of a collaborative whiteboard using canvas -->
+            <div class="whiteboard-cont">
+                <canvas id="whiteboard" height="1000" width="1000"></canvas>
+                
+                <div class="colors-cont">
+                    <!-- Colour options for using on whiteboard -->
+                    <div class="black" onclick="setColor('black')"></div>
+                    <div class="brown" onclick="setColor('#834c32')"></div>
+                    <div class="grey" onclick="setColor('gray')"></div>                  
+                    <div class="purple" onclick="setColor('#9b59b6')"></div>
+                    <div class="pink" onclick="setColor('#fd79a8')"></div>
+                    <div class="green" onclick="setColor('#badc58')"></div>
+                    <div class="blue" onclick="setColor('#3498db')"></div>
+                    <div class="yellow" onclick="setColor('#f1c40f')"></div>
+                    <div class="orange" onclick="setColor('#e67e22')"></div>
+                    <div class="red" onclick="setColor('#e74c3c')"></div>
+
+                    <!-- Eraser for erasing some parts of the whiteboard -->
+                    <div class="eraser tooltip" onclick="setEraser()">
+                        <i class="fas fa-eraser"></i>
+                        <span class="tooltiptext">Eraser</span>
+                    </div>
+                    <!-- Save Board button for downloading the whiteboard as an image -->
+                    <div class="saveboard tooltip" onclick="saveBoard()">
+                        <i class="fas fa-save"></i>
+                        <span class="tooltiptext">Save Whiteboard</span>
+                    </div>
+                    <!-- Clear board button for clearing the entire whiteboard -->
+                    <div class="clearboard tooltip" onclick="clearBoard()">
+                        <i class="fas fa-trash-alt"></i>
+                        <span class="tooltiptext">Clear Whiteboard</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer section -->
+            <div class="footer">
+
+                <!-- Toggle Button for mic/video and end call button -->
+                <div class="utils">
+                    <div class="audio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="cutcall tooltip">
+                        <i class="fas fa-phone-slash"></i>
+                        <span class="tooltiptext">Leave Call</span>
+                    </div>
+                    <div class="novideo">
+                        <i class="fas fa-video"></i>
+                    </div>
+                </div>
+
+                <!-- Main features of the app -->
+                <div class="utilsleft">
+                    <div class="screenshare tooltip">
+                        <i class="fas fa-desktop"></i>
+                        <span class="tooltiptext">Share Screen</span>
+                    </div>
+                    <div class="board-icon tooltip">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span class="tooltiptext">Open Whiteboard</span>
+                    </div>
+                    <div class="record tooltip">
+                        <i class="fas fa-camera"></i>
+                        <span class="tooltiptext">Record Your Video</span>
+                    </div>
+                    <div class="record-screen tooltip">
+                        <i class="fas fa-record-vinyl"></i>
+                        <span class="tooltiptext">Record Entire Screen</span>
+                    </div>
+                    <div class="raise-hand tooltip">
+                        <i class="fas fa-hand-paper"></i>
+                        <span class="tooltiptext">Raise Hand</span>
+                    </div>
+                    <div class="attendies-data tooltip">
+                        <i class="fas fa-user-friends"></i>
+                        <span class="tooltiptext">Download Attendees Activity</span>
+                    </div>
+                    <div class="mute-everyone tooltip">
+                        <i class="fas fa-microphone-slash"></i>
+                        <span class="tooltiptext">Mute Incoming Audios</span>
+                    </div>
+                    <div class="hide-everyone tooltip">
+                        <i class="fas fa-video-slash"></i>
+                        <span class="tooltiptext">Hide Incoming Videos</span>
+                    </div>
+                </div>
+
+                <!-- Copy Room Code Utility for sharing with friends -->
+                <div class="copycode-cont">
+                    <div class="roomcode"></div>
+                    <button class="copycode-button" onclick="CopyCodeText()">Copy Code</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- Chat feature  -->
+        <div class="right-cont">
+            <div class="head-title">
+                <div class="chats">
+                    Chat<i class="fas fa-download msg-save"></i>
+                </div>
+            </div>
+
+            <!-- Messages get added in this Chat container which is scrollable -->
+            <div class="chat-cont"></div>
+
+            <div class="chat-input-cont">
+                <div class="ci-cont">
+                    <input type="text" class="chat-input" placeholder="Type here...">
+                </div>
+
+                <div class="ci-send">
+                    <div class="chat-send">
+                        <i class="fas fa-paper-plane fa-1x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Linking socket.io and custom room.js javascript file -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/room.js"></script>
+</body>
+
+</html>

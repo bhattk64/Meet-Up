@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Meet-Up</title>
+    <link href="favicon.ico" />
+
+    <!-- Linking CSS Stylesheet File -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Linking font-awesome for using the amazing icons -->
+    <script src="https://kit.fontawesome.com/6510466b6c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="landing">
+        <!-- Navbar section includes the logo -->
+        <div class="logo"><i class="fas fa-users"></i> Meet-Up</div>
+        <div class="dropdown">
+            <button class="dropbutton">Existing Rooms</button>
+            <div class="dropdown-content">
+                <li>Mentor Session</li>
+                <li>Friends Meet</li>
+                <li>Family Time</li>
+            </div>
+        </div>
+
+        <!-- Main section starts here -->
+        <div class="main">
+            <div class="create-join">
+                <h1 class="head">Welcome to Meet-Up</h1>
+                <button id="createroom" class="createroom-butt">Create Room</button>
+
+                <!-- Option for joining an existing room -->
+                <div class="subtext">Already have a Room code ?</div>
+                <input type="text" name="room" spellcheck="false" placeholder="Enter The Code Here" id="roomcode"
+                    class="roomcode">
+
+                <div class="joinroom" id="joinroom">
+                    <i class="fas fa-long-arrow-alt-right fa-4x"></i>
+                </div>
+            </div>
+
+            <div class="video-cont">
+                <!-- Displaying our video the same way it'll look upon joining the room -->
+                <video class="video-self" autoplay muted playsinline></video>
+
+                <div class="settings">
+                    <div class="device" id="mic"><i class="fas fa-microphone"></i></div>
+                    <div class="device" id="webcam"><i class="fas fa-video"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Linking custom landing.js javascript file -->
+    <script src="js/landing.js"></script>
+</body>
+
+</html>
